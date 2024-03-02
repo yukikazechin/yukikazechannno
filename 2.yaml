@@ -27,7 +27,7 @@ dns:
 proxies:
   - name: "warp1"
     type: vless
-    server: warpspeed.arikacips.workers.dev
+    server: warp1.arikacips.cyou
     port: 2052
     uuid: 1293184e-1f20-484d-b5dc-b65f5de98d84
     network: ws
@@ -45,7 +45,7 @@ proxies:
     uuid: 298f5ac5-d606-4d41-9287-e5db0a27df56
     network: ws
     tls: false
-    sni: warp.arikacips.workers.dev
+    sni: warp3.arikacips.cyou
     client-fingerprint: chrome
     ws-opts:
       path: "/?ed=2048"
@@ -67,7 +67,7 @@ proxies:
 
 proxy-groups:
     - { name: ♻️ 海外节点, type: select, proxies: ['♻️ 自动选择', '♻️ 故障转移', 'warp1','warp2','warp3','DIRECT'] }
-    - { name: ♻️ 自动选择, type: url-test, proxies: [ 'warp1','warp2','warp3'], url: 'http://www.gstatic.com/generate_204', interval: 86400 }
+    - { name: ♻️ 自动选择, type: url-test, proxies: [ 'warp1','warp2','warp3','DIRECT'], url: 'http://www.gstatic.com/generate_204', interval: 86400 }
     - { name: ♻️ 故障转移, type: fallback, proxies: [ 'warp1','warp2','warp3','DIRECT'], url: 'http://www.gstatic.com/generate_204', interval: 7200 }
 rules:
     - 'DOMAIN-SUFFIX,ipaddress.my,♻️ 海外节点'  
